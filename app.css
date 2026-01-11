@@ -1,0 +1,29 @@
+body{
+    margin: 0px;
+}
+main{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.NavBar ul{
+    list-style-type: none;
+    background-color: rgb(47, 47, 47);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.NavBar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.NavBar a:hover{
+    background-color: rgb(25, 25, 25);
+}
+.NavBar li{
+    float: left;
+}
