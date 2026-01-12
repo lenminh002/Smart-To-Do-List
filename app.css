@@ -10,7 +10,7 @@ main{
     padding: 10px;
     display: flex;
     justify-content: center;
-    height: 75vh;
+    height: 83.85vh;
 }
 header{
     background-color: rgb(233, 231, 231);
@@ -48,6 +48,7 @@ header{
     margin:  4% 10% 10% 10% ;
     border-radius: 10px;
     height: 60vh;
+    width: 40vw;
 }
 .todo-app h2{
     display: flex;
@@ -78,13 +79,19 @@ header{
     padding: 20px 50px;
     background-color: #000000;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 30px;
 }
+.todo-app ul{
+    overflow-y: auto;
+    height: 80%;
+    width: 100%;
+    margin-top: 3%;
+}
 .todo-app ul li{
     list-style: none;
-    font-size: 17px;
+    font-size: 15px;
     padding: 20px 20px 20px 50px;
     user-select: none;
     cursor: pointer;
@@ -99,7 +106,7 @@ header{
     background-image: url(images/unchecked.png);
     background-size: cover;
     background-position: center;
-    top: 12px;
+    top: 14px;
     left: 8px;
 }
 .todo-app ul li.checked{
@@ -124,12 +131,4 @@ header{
 }
 .todo-app ul li span:hover{
     background-color: #edeef0;
-}
-
-/* footer */
-footer{
-    text-align: center;
-    background-color: rgb(170, 170, 170);
-    padding: 20px;
-    height: 8.8vh;
 }
