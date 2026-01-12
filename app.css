@@ -119,9 +119,11 @@ header{
     color: #555;
     line-height: 40px;
     cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
 }
 .todo-app ul li span:hover{
-    color: #edeef0;
+    background-color: #edeef0;
 }
 
 /* footer */
