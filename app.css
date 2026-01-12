@@ -1,12 +1,25 @@
-body{
+*{
     margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 main{
-    margin-left: 20px;
-    margin-right: 20px;
+    background: #ffffff;
+    background: linear-gradient(90deg, rgb(56, 56, 56) 0%, rgba(250, 250, 250, 1) 100%);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    height: 75vh;
+}
+header{
+    background-color: rgb(233, 231, 231);
+    padding: 20px;
+    height: 10vh;
 }
 
 
+/* Nav Bar Decoration */
 .NavBar ul{
     list-style-type: none;
     background-color: rgb(47, 47, 47);
@@ -26,4 +39,95 @@ main{
 }
 .NavBar li{
     float: left;
+}
+
+/* To-Do App */
+.todo-app{
+    background-color: white;
+    padding: 50px 30px 100px 30px;
+    margin:  4% 10% 10% 10% ;
+    border-radius: 10px;
+    height: 60vh;
+}
+.todo-app h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.todo-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    background-color: rgb(227, 227, 227);
+}
+#input-box{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 20px;
+}
+#add-btn{
+    border: none;
+    outline: none;
+    padding: 20px 50px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.todo-app ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 20px 20px 20px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+.todo-app ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+.todo-app ul li.checked{
+    text-decoration: line-through;
+    color: rgb(150, 150, 150);
+}
+.todo-app ul li.checked::before{
+    background-image: url(images/checked.png);
+}
+.todo-app ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    cursor: pointer;
+}
+.todo-app ul li span:hover{
+    color: #edeef0;
+}
+
+/* footer */
+footer{
+    text-align: center;
+    background-color: rgb(170, 170, 170);
+    padding: 20px;
+    height: 8.8vh;
 }

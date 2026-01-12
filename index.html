@@ -6,6 +6,9 @@
     <title>Smart To-Do List</title>
     <link rel="stylesheet" href="../app.css"></head>
 <body>
+    <header>
+        <h1 style="text-align: center;">Smart To-Do List</h1>
+    </header>
     <nav class="NavBar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -16,8 +19,23 @@
     </nav>
 
     <main>
-        <h3>HomePage</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore aliquam ratione maxime culpa sapiente! Aliquid natus ullam libero quaerat incidunt at quia esse fugit suscipit fugiat assumenda, sit doloribus officiis.</p>
+        <div class="todo-app">
+            <h2>To-Do List<img src="images/icon.png" alt="To-Do List Icon"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button id="add-btn" onclick="addTask()">Add</button>
+            </div>
+            <ul id="list-container">
+                <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>
+        </div>
     </main>
+    
+    <footer>
+        <h3>Footer</h3>
+    </footer>
+    <script src="app.js"></script>
 </body>
 </html>
