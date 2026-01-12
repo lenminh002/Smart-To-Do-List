@@ -45,7 +45,7 @@ header{
 .todo-app{
     background-color: white;
     padding: 50px 30px 100px 30px;
-    margin:  4% 10% 10% 10% ;
+    margin:  4% 5% 10% 10% ;
     border-radius: 10px;
     height: 60vh;
     width: 40vw;
@@ -59,7 +59,7 @@ header{
     width: 30px;
     margin-left: 10px;
 }
-.row{
+.row1{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,6 +82,9 @@ header{
     font-size: 15px;
     cursor: pointer;
     border-radius: 30px;
+}
+#add-btn:hover{
+    background-color: #333333;
 }
 .todo-app ul{
     overflow-y: auto;
@@ -131,4 +134,82 @@ header{
 }
 .todo-app ul li span:hover{
     background-color: #edeef0;
+}
+
+
+#chatbot{
+    background-color: white;
+    padding: 20px;
+    margin:  4% 0% 0% 0% ;
+    border-radius: 10px;
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+
+}
+#chatbot h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#chat-input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+#send-btn{
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    background-color: #000000;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#send-btn:hover{
+    background-color: #333333;
+}
+.row2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgb(227, 227, 227);
+}
+.texting-area{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  
+}
+#messages-list{
+    overflow-y: auto;
+}
+.messageSent{
+    list-style: none;
+    font-size: 15px;
+    padding: 2px 20px 20px;
+    user-select: none;
+}
+#delete-btn{
+    cursor: pointer;
+    margin-left: 40%;
+    padding: 0 10px 0 10px;
+    height: 30px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+      
+}
+#delete-btn:hover{
+    background-color: #333333;
+}
+.chatbot-header{
+    display: flex;
+    flex-direction: row;
 }

@@ -21,7 +21,7 @@
     <main>
         <div class="todo-app">
             <h2>To-Do List<img src="images/icon.png" alt="To-Do List Icon"></h2>
-            <div class="row">
+            <div class="row1">
                 <input type="text" id="input-box" placeholder="Add your text">
                 <button id="add-btn" onclick="addTask()">Add</button>
             </div>
@@ -29,6 +29,26 @@
                 <!-- list will be added here. For example:
                 <li class="checked">Task 1</li> -->
             </ul>
+        </div>
+        <div id="chatbot">
+            <div class="chatbot-header">
+                <h2>AI Assistant</h2>
+                <button id="delete-btn" onclick="deleteMessages()">Delete Chat</button>
+            </div>
+            <div class="texting-area">
+                <ul id="messages-list">
+                   <!-- <li class="messageSent">Message 1</li> 
+                   <li class="messageSent">Message 2</li> 
+                   <li class="messageSent">Message 3</li>  -->
+                </ul>
+                <div class="row2">
+                    <div id="chat-window">
+                        <div id="chat-messages"></div>
+                    </div>
+                    <input type="text" id="chat-input" placeholder="Type your message here...">
+                    <button id="send-btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
         </div>
     </main>
     
