@@ -8,6 +8,7 @@ const chatInput = document.getElementById("chat-input");
 function addTask(){
     if(inputBox.value === ''){
         alert("You must write something!");
+        return;
     }
     else{
         let li = document.createElement("li");
@@ -44,24 +45,55 @@ function showTask(){
 }
 
 
-function sendMessage(){
+// function sendMessage(){
+//     if(chatInput.value === ''){
+//         alert("Message is empty!");
+//     }
+//     else{
+//         let message = document.createElement("li");
+//         message.innerHTML = chatInput.value;
+//         message.classList.add("messageSent");
+//         messageListContainer.appendChild(message);
+//     }
+//     chatInput.value = "";
+//     saveData();
+// }
+
+async function sendMessage(){
     if(chatInput.value === ''){
         alert("Message is empty!");
+        return;
     }
     else{
+        const userText = chatInput.value.trim();
+
         let message = document.createElement("li");
-        message.innerHTML = chatInput.value;
+        message.innerHTML = userText;
         message.classList.add("messageSent");
         messageListContainer.appendChild(message);
-    }
-    chatInput.value = "";
+
+        chatInput.value = "";
+
+        const res = await fetch("/chat", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({message: userText})
+        });
+        const data = await res.json();
+
+        let reply = document.createElement("li");
+        reply.innerHTML = data.reply || data.error;
+        reply.classList.add("messageSent");
+        messageListContainer.appendChild(reply);
+
+
     saveData();
+    }
 }
 
 function deleteMessages(){
     messageListContainer.innerHTML = "";
     saveData();
 }
-
 
 showTask();
