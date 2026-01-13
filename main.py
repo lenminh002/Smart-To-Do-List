@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 def chatbot_response(prompt: str) -> str:
     respone = client.chat.completions.create(
