@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify, send_from_directory
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
-client = OpenAI(api_key="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")
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=openai_api_key)
 
 app = Flask(__name__, static_folder=".", static_url_path="")
 
@@ -30,6 +34,18 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def main():
