@@ -1,0 +1,33 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: white;
+    padding: 50px 30px 100px 30px;
+    border-radius: 10px;
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-group {
+    margin: 3% 0 0 0;
+    width: 23vw;
+    background-color: rgb(227, 227, 227);
+    padding: 6% 10% 6% 10%;
+    border-radius: 20px;
+
+}
+.form-group input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.login-button{
+    width: 23vw;
+    margin-top: 5%;
+    padding: 15px 0;
+}

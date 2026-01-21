@@ -37,7 +37,10 @@ header{
 .NavBar a:hover{
     background-color: rgb(25, 25, 25);
 }
-.NavBar li{
+.right-nav {
+    float: right;
+}
+.left-nav {
     float: left;
 }
 
