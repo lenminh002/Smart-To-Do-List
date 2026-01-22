@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart To-Do List</title>
     <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <header>
@@ -22,9 +23,25 @@
 
     </nav>
 
-    <main style="display: block;">
-        <h3>Register Page</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore aliquam ratione maxime culpa sapiente! Aliquid natus ullam libero quaerat incidunt at quia esse fugit suscipit fugiat assumenda, sit doloribus officiis.</p>
+    <main>
+        <div class="login-container">
+            <h1 style="margin-bottom: 8%;">Sign up</h1>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Confirm your password">
+                </div>
+                <br>
+                <button class="login-button">Sign Up</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>

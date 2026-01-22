@@ -29,5 +29,13 @@ main{
 .login-button{
     width: 23vw;
     margin-top: 5%;
-    padding: 15px 0;
+    padding: 5%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.login-button:hover{
+    background-color: rgb(39, 39, 39);
 }
