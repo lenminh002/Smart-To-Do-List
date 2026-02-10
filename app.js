@@ -4,7 +4,7 @@ const messageListContainer = document.getElementById("messages-list");
 const chatInput = document.getElementById("chat-input");
 
 
-
+// TODO LIST FUNCTIONALITY
 function addTask(){
     if(inputBox.value === ''){
         alert("You must write something!");
@@ -22,8 +22,11 @@ function addTask(){
     inputBox.value = "";
     saveData();
 }
-
-
+inputBox.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+        addTask();
+    }
+});
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
@@ -35,14 +38,6 @@ listContainer.addEventListener("click", function(e){
     }
 }, false);
 
-function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
-    localStorage.setItem("messagesdata", messageListContainer.innerHTML);
-}
-function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
-    messageListContainer.innerHTML = localStorage.getItem("messagesdata");
-}
 
 
 // function sendMessage(){
@@ -59,6 +54,9 @@ function showTask(){
 //     saveData();
 // }
 
+
+
+// CHATBOT FUNCTIONALITY
 async function sendMessage(){
     if(chatInput.value === ''){
         alert("Message is empty!");
@@ -87,13 +85,28 @@ async function sendMessage(){
         messageListContainer.appendChild(reply);
 
 
-    saveData();
+        saveData();
     }
 }
-
+chatInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+        sendMessage();
+    }
+});
 function deleteMessages(){
     messageListContainer.innerHTML = "";
     saveData();
+}
+
+
+// LOCAL STORAGE FUNCTIONALITY
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+    localStorage.setItem("messagesdata", messageListContainer.innerHTML);
+}
+function showTask(){
+    listContainer.innerHTML = localStorage.getItem("data");
+    messageListContainer.innerHTML = localStorage.getItem("messagesdata");
 }
 
 showTask();

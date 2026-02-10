@@ -10,15 +10,49 @@ client = OpenAI(api_key=openai_api_key)
 app = Flask(__name__, static_folder=".", static_url_path="")
 
 
+systemPrompt="""       
+            You are a helpful assistant that help the user generate a smart, logical, and productive To-Do list item. 
+            Your job is hearing the user desire and generate a logical To-Do list item that can help the user achieve their goal effectively.
+            The To-Do list item should be specific, actionable, and relevant to the user's goal.
+            
+            For example, if the user says "I want to learn a new language", 
+            you can generate a To-Do list item like "Sign up for an online language course" 
+            or "Practice speaking with a language partner for 30 minutes every day".
+            
+            """
+
+
+message_array = [
+    {
+        "role": "system", 
+        "content": systemPrompt
+    }
+]
 def chatbot_response(prompt: str) -> str:
+    # add user message to the memory
+    message_array.append(
+        {
+            "role": "user", 
+            "content": prompt
+        }
+    )
+
     respone = client.chat.completions.create(
         model = "gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant that help the user generate a smart, logical, and productive To-Do list item. Your job is hearing the user desire and generate a logical To-Do list item that can help the user achieve their goal effectively."},
-            {"role": "user", "content": prompt}
-        ]
+        messages=message_array
     )
-    return respone.choices[0].message.content.strip()
+
+    ai_response = respone.choices[0].message.content.strip()
+    
+    # add AI message to the memory
+    message_array.append(
+        {
+            "role": "assistant", 
+            "content": ai_response
+        }
+    )
+
+    return ai_response
 
 @app.get("/")
 def index():
@@ -31,6 +65,8 @@ def chat():
     if not prompt:
         return jsonify({"error": "Empty message"}), 400
     return jsonify({"reply": chatbot_response(prompt)})
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
