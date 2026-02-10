@@ -61,12 +61,21 @@ def index():
 @app.post("/chat")
 def chat():
     data = request.get_json() or {}
-    prompt = (data.get("message") or "").strip()
+    prompt = (data.get("message") or "").strip() 
     if not prompt:
         return jsonify({"error": "Empty message"}), 400
     return jsonify({"reply": chatbot_response(prompt)})
 
-
+@app.post("/clear-messages")
+def clear_messages():
+    global message_array
+    message_array = [
+        {
+            "role": "system", 
+            "content": systemPrompt
+        }
+    ]
+    return jsonify({"status": "Messages cleared"})
 
 if __name__ == "__main__":
     app.run(debug=True)

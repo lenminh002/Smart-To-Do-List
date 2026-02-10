@@ -40,21 +40,6 @@ listContainer.addEventListener("click", function(e){
 
 
 
-// function sendMessage(){
-//     if(chatInput.value === ''){
-//         alert("Message is empty!");
-//     }
-//     else{
-//         let message = document.createElement("li");
-//         message.innerHTML = chatInput.value;
-//         message.classList.add("messageSent");
-//         messageListContainer.appendChild(message);
-//     }
-//     chatInput.value = "";
-//     saveData();
-// }
-
-
 
 // CHATBOT FUNCTIONALITY
 async function sendMessage(){
@@ -66,7 +51,7 @@ async function sendMessage(){
         const userText = chatInput.value.trim();
 
         let message = document.createElement("li");
-        message.innerHTML = userText;
+        message.innerHTML = 'You: ' + userText;
         message.classList.add("messageSent");
         messageListContainer.appendChild(message);
 
@@ -80,10 +65,9 @@ async function sendMessage(){
         const data = await res.json();
 
         let reply = document.createElement("li");
-        reply.innerHTML = data.reply || data.error;
+        reply.innerHTML = 'Assistant: ' + (data.reply || data.error);
         reply.classList.add("messageSent");
         messageListContainer.appendChild(reply);
-
 
         saveData();
     }
@@ -93,8 +77,24 @@ chatInput.addEventListener("keydown", function(e){
         sendMessage();
     }
 });
-function deleteMessages(){
+
+async function deleteMessages(){
     messageListContainer.innerHTML = "";
+
+    const res = await fetch("/clear-messages", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"}
+    });
+    
+    const data = await res.json();
+        
+    if(!res.ok){
+        alert("Failed to clear messages");
+    }
+    else{
+        alert("Messages cleared successfully");
+    }
+
     saveData();
 }
 
