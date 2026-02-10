@@ -1,3 +1,4 @@
+
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const messageListContainer = document.getElementById("messages-list");
@@ -51,27 +52,42 @@ async function sendMessage(){
         const userText = chatInput.value.trim();
 
         let message = document.createElement("li");
-        message.innerHTML = 'You: ' + userText;
+        message.innerHTML = `<strong>You: </strong> ${userText}`;
         message.classList.add("messageSent");
         messageListContainer.appendChild(message);
 
         chatInput.value = "";
 
-        const res = await fetch("/chat", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({message: userText})
-        });
-        const data = await res.json();
+        let data;
+        try{
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message: userText})
+            });
+            data = await res.json();
+            if(!res.ok){
+                throw new Error(data.error || "Failed to get response from server");
+            }
+        }
+        catch(error){
+            alert("Error: " + error.message);
+            return;
+        }
+
+        const HtmlOutput = marked.parse(data.reply || "No response from server");
+        const Purified_Html = DOMPurify.sanitize(HtmlOutput);
 
         let reply = document.createElement("li");
-        reply.innerHTML = 'Assistant: ' + (data.reply || data.error);
+        reply.innerHTML = `<strong>Assistant: </strong> ${Purified_Html.trim()}`;
         reply.classList.add("messageSent");
         messageListContainer.appendChild(reply);
 
         saveData();
     }
 }
+
+
 chatInput.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
         sendMessage();
@@ -86,7 +102,6 @@ async function deleteMessages(){
             headers: {"Content-Type": "application/json"}
     });
     
-    const data = await res.json();
         
     if(!res.ok){
         alert("Failed to clear messages");

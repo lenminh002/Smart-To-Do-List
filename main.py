@@ -16,8 +16,11 @@ systemPrompt="""
             The To-Do list item should be specific, actionable, and relevant to the user's goal.
             
             For example, if the user says "I want to learn a new language", 
-            you can generate a To-Do list item like "Sign up for an online language course" 
-            or "Practice speaking with a language partner for 30 minutes every day".
+            you can generate a To-Do list item like: 
+                1."Sign up for an online language course" 
+                2."Practice speaking with a language partner for 30 minutes every day".
+                3. ....
+            and the list can be as long as you think is necessary to help the user achieve their goal effectively.
             
             """
 
