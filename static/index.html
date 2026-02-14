@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart To-Do List</title>
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="/static/app.css">
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
@@ -18,19 +18,19 @@
     </header>
     <nav class="NavBar">
         <ul>
-            <li class="left-nav"><a href="index.html">Home</a></li>
-            <li class="left-nav"><a href="childPage/products.html">Products</a></li>
-            <li class="left-nav"><a href="childPage/about.html">About</a></li>
-            <li class="left-nav"><a href="childPage/contact.html">Contact</a></li>
-            <li class="right-nav"><a href="childPage/login.html">Log In</a></li>
-            <li class="right-nav"><a href="childPage/register.html">Register</a></li>
+            <li class="left-nav"><a href="/static/index.html">Home</a></li>
+            <li class="left-nav"><a href="/static/childPage/products.html">Products</a></li>
+            <li class="left-nav"><a href="/static/childPage/about.html">About</a></li>
+            <li class="left-nav"><a href="/static/childPage/contact.html">Contact</a></li>
+            <li class="right-nav"><a href="/static/childPage/login.html">Log In</a></li>
+            <li class="right-nav"><a href="/static/childPage/register.html">Register</a></li>
         </ul>
 
     </nav>
 
     <main>
         <div class="todo-app">
-            <h2>To-Do List<img src="images/icon.png" alt="To-Do List Icon"></h2>
+            <h2>To-Do List<img src="/static/images/icon.png" alt="To-Do List Icon"></h2>
             <div class="row1">
                 <input type="text" id="input-box" placeholder="Add your text">
                 <button id="add-btn" onclick="addTask()">Add</button>
@@ -62,6 +62,6 @@
         </div>
     </main>
     
-    <script src="app.js"></script>
+    <script src="/static/app.js"></script>
 </body>
 </html>

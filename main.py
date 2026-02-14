@@ -7,7 +7,7 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=openai_api_key)
 
-app = Flask(__name__, static_folder=".", static_url_path="")
+app = Flask(__name__)
 
 
 systemPrompt="""       
@@ -59,7 +59,7 @@ def chatbot_response(prompt: str) -> str:
 
 @app.get("/")
 def index():
-    return send_from_directory(".", "index.html")
+    return send_from_directory("static", "index.html")
 
 @app.post("/chat")
 def chat():
