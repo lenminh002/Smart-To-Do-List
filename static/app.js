@@ -75,11 +75,11 @@ async function sendMessage(){
             return;
         }
 
-        const HtmlOutput = marked.parse(data.reply || "No response from server");
-        const Purified_Html = DOMPurify.sanitize(HtmlOutput);
+        const rawHTML = marked.parse(data.reply || "No response from server");
+        const HTML_output = DOMPurify.sanitize(rawHTML);
 
         let reply = document.createElement("li");
-        reply.innerHTML = `<strong>Assistant: </strong> ${Purified_Html.trim()}`;
+        reply.innerHTML = `<strong>Assistant: </strong> ${HTML_output.trim()}`;
         reply.classList.add("messageSent");
         messageListContainer.appendChild(reply);
 

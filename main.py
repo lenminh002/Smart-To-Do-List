@@ -40,12 +40,13 @@ def chatbot_response(prompt: str) -> str:
         }
     )
 
+    # generate AI response using the OpenAI API
     respone = client.chat.completions.create(
         model = "gpt-4o-mini",
         messages=message_array
     )
+    ai_response = respone.choices[0].message.content
 
-    ai_response = respone.choices[0].message.content.strip()
     
     # add AI message to the memory
     message_array.append(
