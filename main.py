@@ -45,7 +45,7 @@ def chatbot_response(prompt: str) -> str:
         model = "gpt-4o-mini",
         messages=message_array
     )
-    ai_response = respone.choices[0].message.content
+    ai_response = respone.choices[0].message.content.strip()
 
     
     # add AI message to the memory
